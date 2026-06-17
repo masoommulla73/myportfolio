@@ -11,8 +11,8 @@ export default function AdminTrigger() {
       onDoubleClick={() => router.push("/admin")}
       title="Double click for Admin Access"
     >
-      <span className="text-blue-600">{`{ M }`}</span>
-      <span>MASOOM</span>
+      <span className="text-emerald-600">{`< />`}</span>
+      <span className="hidden sm:inline">PORTFOLIO</span>
     </div>
   );
 }

@@ -13,19 +13,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Masoom | Full-Stack Developer",
-  description: "Portfolio of Masoom, a Full-Stack Developer building scalable, secure & high-performance web applications.",
-  keywords: ["Masoom", "Developer", "Full-Stack", "Portfolio", "Next.js", "React", "TypeScript", "Tailwind CSS", "Supabase"],
+  title: "Portfolio | Full-Stack Developer",
+  description: "Portfolio of a Full-Stack Developer building scalable, secure & high-performance web applications.",
+  keywords: ["Developer", "Full-Stack", "Portfolio", "Next.js", "React", "TypeScript", "Tailwind CSS", "Supabase"],
   openGraph: {
-    title: "Masoom | Full-Stack Developer",
-    description: "Portfolio of Masoom, a Full-Stack Developer building scalable, secure & high-performance web applications.",
+    title: "Portfolio | Full-Stack Developer",
+    description: "Portfolio of a Full-Stack Developer building scalable, secure & high-performance web applications.",
     type: "website",
     url: "https://portfolio.example.com",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Masoom | Full-Stack Developer",
-    description: "Portfolio of Masoom, a Full-Stack Developer building scalable, secure & high-performance web applications.",
+    title: "Portfolio | Full-Stack Developer",
+    description: "Portfolio of a Full-Stack Developer building scalable, secure & high-performance web applications.",
   },
 };
 
