@@ -43,19 +43,21 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="col-span-2 bg-[#bcf081] p-8 lg:p-12 shadow-[12px_12px_0px_rgba(15,23,42,1)] border-4 border-[#0f172a] flex flex-col justify-between"
+            className="col-span-2 group [perspective:1000px]"
           >
-            <div className="flex justify-between items-start mb-12">
-              <span className="text-sm lg:text-base font-black uppercase tracking-widest text-[#0f172a] max-w-[150px]">
-                Total Projects Built This Year
-              </span>
-              <div className="w-10 h-10 rounded-full border-2 border-[#0f172a] flex items-center justify-center font-black">
-                P
+            <div className="bg-[#bcf081] p-8 lg:p-12 shadow-[12px_12px_0px_rgba(15,23,42,1)] border-4 border-[#0f172a] flex flex-col justify-between w-full h-full transition-all duration-500 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotate3d(0.5,1,0,30deg)]">
+              <div className="flex justify-between items-start mb-12 [transform:translateZ(50px)] transition-all duration-500 ease-in-out group-hover:[transform:translateZ(60px)]">
+                <span className="text-sm lg:text-base font-black uppercase tracking-widest text-[#0f172a] max-w-[150px]">
+                  Total Projects Built This Year
+                </span>
+                <div className="w-10 h-10 rounded-full border-2 border-[#0f172a] flex items-center justify-center font-black bg-white/20 backdrop-blur-sm shadow-sm">
+                  P
+                </div>
               </div>
+              <span className="text-7xl lg:text-9xl font-black text-[#0f172a] tracking-tighter [transform:translateZ(30px)] transition-all duration-500 ease-in-out group-hover:[transform:translateZ(60px)]">
+                {PROJECTS.filter(p => p.visible).length}++
+              </span>
             </div>
-            <span className="text-7xl lg:text-9xl font-black text-[#0f172a] tracking-tighter">
-              {PROJECTS.filter(p => p.visible).length}++
-            </span>
           </motion.div>
 
           {/* Block 2: Purple Stat */}
@@ -64,16 +66,18 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="col-span-1 bg-[#a084dc] p-6 lg:p-10 shadow-[8px_8px_0px_rgba(15,23,42,1)] border-4 border-[#0f172a] flex flex-col justify-between aspect-square"
+            className="col-span-1 group [perspective:1000px]"
           >
-            <div className="flex justify-between items-start mb-8">
-              <span className="text-xs lg:text-sm font-black uppercase tracking-widest text-[#0f172a]">
-                Academic<br />Record
+            <div className="bg-[#a084dc] p-6 lg:p-10 shadow-[8px_8px_0px_rgba(15,23,42,1)] border-4 border-[#0f172a] flex flex-col justify-between aspect-square w-full h-full transition-all duration-500 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotate3d(0.5,1,0,30deg)]">
+              <div className="flex justify-between items-start mb-8 [transform:translateZ(50px)] transition-all duration-500 ease-in-out group-hover:[transform:translateZ(60px)]">
+                <span className="text-xs lg:text-sm font-black uppercase tracking-widest text-[#0f172a]">
+                  Academic<br />Record
+                </span>
+              </div>
+              <span className="text-6xl lg:text-8xl font-black text-white tracking-tighter drop-shadow-md [transform:translateZ(30px)] transition-all duration-500 ease-in-out group-hover:[transform:translateZ(60px)]">
+                8.4
               </span>
             </div>
-            <span className="text-6xl lg:text-8xl font-black text-white tracking-tighter drop-shadow-md">
-              8.4
-            </span>
           </motion.div>
 
           {/* Block 3: Red Stat */}
@@ -82,16 +86,18 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="col-span-1 bg-[#ff6868] p-6 lg:p-10 shadow-[8px_8px_0px_rgba(15,23,42,1)] border-4 border-[#0f172a] flex flex-col justify-between aspect-square"
+            className="col-span-1 group [perspective:1000px]"
           >
-            <div className="flex justify-between items-start mb-8">
-              <span className="text-xs lg:text-sm font-black uppercase tracking-widest text-[#0f172a]">
-                Passion<br />Driven
+            <div className="bg-[#ff6868] p-6 lg:p-10 shadow-[8px_8px_0px_rgba(15,23,42,1)] border-4 border-[#0f172a] flex flex-col justify-between aspect-square w-full h-full transition-all duration-500 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotate3d(0.5,1,0,30deg)]">
+              <div className="flex justify-between items-start mb-8 [transform:translateZ(50px)] transition-all duration-500 ease-in-out group-hover:[transform:translateZ(60px)]">
+                <span className="text-xs lg:text-sm font-black uppercase tracking-widest text-[#0f172a]">
+                  Passion<br />Driven
+                </span>
+              </div>
+              <span className="text-6xl lg:text-8xl font-black text-white tracking-tighter drop-shadow-md [transform:translateZ(30px)] transition-all duration-500 ease-in-out group-hover:[transform:translateZ(60px)]">
+                100%
               </span>
             </div>
-            <span className="text-6xl lg:text-8xl font-black text-white tracking-tighter drop-shadow-md">
-              100%
-            </span>
           </motion.div>
 
         </div>

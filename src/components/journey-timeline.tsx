@@ -64,32 +64,89 @@ export default function JourneyTimeline() {
                   </motion.div>
                 </div>
 
-                {/* Content Box */}
-                <div className="w-full lg:w-[65%] bg-[#0f172a] p-10 lg:p-16 border border-white/10 shadow-2xl flex flex-col gap-6 rounded-[2rem] transition-all duration-500 group-hover:border-emerald-400/30 group-hover:shadow-[0_20px_50px_rgba(52,211,153,0.1)]">
-                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-white/10 pb-6">
-                    <span className="text-emerald-400 font-black tracking-widest uppercase text-lg lg:text-xl">
-                      {edu.year}
-                    </span>
-                    <span className={`px-4 py-1.5 border-2 text-xs font-black uppercase tracking-widest rounded-full ${edu.status === 'Completed' ? 'border-emerald-500/30 text-emerald-400 bg-emerald-500/10' : 'border-blue-500/30 text-blue-400 bg-blue-500/10'}`}>
+                {/* Neobrutalist Content Box */}
+                <div className="relative w-full lg:w-[65%] bg-white border-[6px] border-[#0f172a] rounded-xl shadow-[12px_12px_0_#0f172a] transition-all duration-400 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-x-2 hover:-translate-y-2 hover:shadow-[16px_16px_0_#0f172a] overflow-hidden group/card flex flex-col">
+                  
+                  {/* Background Patterns */}
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:10px_10px] pointer-events-none opacity-50 transition-opacity duration-400 group-hover/card:opacity-100 z-0" />
+                  <div className="absolute inset-0 bg-[radial-gradient(#cfcfcf_1px,transparent_1px)] bg-[size:20px_20px] bg-[-10px_-10px] pointer-events-none opacity-0 transition-opacity duration-400 group-hover/card:opacity-100 z-0" />
+
+                  {/* Top Right Corner Accent */}
+                  <div className="absolute -top-6 -right-6 w-16 h-16 bg-[#00e0b0] rotate-45 z-10 border-b-[6px] border-[#0f172a]" />
+                  <div className="absolute top-1 right-2 text-[#0f172a] font-bold text-2xl z-20">★</div>
+
+                  {/* Top Bold Pattern SVG */}
+                  <div className="absolute top-0 right-0 w-24 h-24 opacity-15 pointer-events-none z-0">
+                    <svg viewBox="0 0 100 100">
+                      <path strokeDasharray="15 10" strokeWidth={10} stroke="#000" fill="none" d="M0,0 L100,0 L100,100 L0,100 Z" />
+                    </svg>
+                  </div>
+
+                  {/* Title Area */}
+                  <div className="relative p-6 lg:p-8 bg-[#ff3e00] text-white font-black text-2xl lg:text-3xl flex justify-between items-center border-b-[6px] border-[#0f172a] uppercase tracking-wider z-10 overflow-hidden">
+                    {/* Diagonal Stripes Overlay */}
+                    <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,rgba(0,0,0,0.1),rgba(0,0,0,0.1)_10px,transparent_10px,transparent_20px)] pointer-events-none opacity-30" />
+                    
+                    <span className="relative z-10">{edu.year}</span>
+                    
+                    <span className="relative z-10 bg-white text-[#0f172a] text-xs lg:text-sm font-black px-4 py-2 border-[4px] border-[#0f172a] rounded-md shadow-[4px_4px_0_#0f172a] uppercase tracking-widest rotate-3 transition-transform duration-300 group-hover/card:-rotate-2 group-hover/card:scale-110">
                       {edu.status}
                     </span>
                   </div>
-                  
-                  <h3 className="text-4xl lg:text-5xl font-black text-white tracking-tight uppercase leading-tight">
-                    {edu.degree}
-                  </h3>
-                  
-                  <p className="text-white/60 text-xl lg:text-2xl font-bold uppercase tracking-widest mt-2">
-                    {edu.institution}
-                  </p>
 
-                  <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
-                    <span className="text-white/40 font-bold uppercase tracking-widest">
-                      Score / Grade
-                    </span>
-                    <span className="text-4xl font-black text-white">
-                      {edu.percentage}
-                    </span>
+                  {/* Body Area */}
+                  <div className="relative p-8 lg:p-12 z-10 flex flex-col gap-6">
+                    <h3 className="text-3xl lg:text-5xl font-black text-[#0f172a] tracking-tight uppercase leading-tight">
+                      {edu.degree}
+                    </h3>
+                    
+                    <p className="text-[#0f172a]/80 text-lg lg:text-xl font-bold uppercase tracking-widest mt-2">
+                      {edu.institution}
+                    </p>
+
+                    <div className="mt-6 pt-6 border-t-[4px] border-dashed border-[#0f172a]/20 flex items-center justify-between relative">
+                      {/* Scissor icon illusion for dashed border */}
+                      <div className="absolute -top-5 left-1/2 -translate-x-1/2 rotate-90 bg-white px-2 text-[#0f172a]/40 text-2xl font-sans">
+                        ✂
+                      </div>
+                      
+                      <span className="text-[#0f172a]/60 font-black uppercase tracking-widest text-sm lg:text-base">
+                        Score / Grade
+                      </span>
+                      <div className="relative font-black text-4xl lg:text-5xl text-[#0f172a]">
+                        {/* Highlight underline */}
+                        <div className="absolute bottom-1 left-0 w-full h-3 bg-[#00e0b0] opacity-50 -z-10" />
+                        {edu.percentage}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom Left Corner Slice (matches section bg #c2def2) */}
+                  <div className="absolute bottom-0 left-0 w-10 h-10 bg-[#c2def2] border-r-[6px] border-t-[6px] border-[#0f172a] rounded-tr-lg z-10" />
+
+                  {/* Stamp */}
+                  <div className="absolute bottom-6 left-12 w-20 h-20 flex items-center justify-center border-[4px] border-[#0f172a]/30 rounded-full -rotate-[15deg] opacity-20 z-0 pointer-events-none">
+                    <span className="text-xs font-black uppercase tracking-widest text-[#0f172a]">Verified</span>
+                  </div>
+
+                  {/* Accent Shape */}
+                  <div className="absolute -bottom-4 right-10 w-14 h-14 bg-[#4d61ff] border-[6px] border-[#0f172a] rounded-md rotate-45 z-0 transition-transform duration-300 group-hover/card:rotate-[55deg] group-hover/card:scale-110" />
+                  
+                  {/* Bottom Dots Pattern */}
+                  <div className="absolute bottom-12 -left-4 w-32 h-16 opacity-30 -rotate-12 pointer-events-none z-0">
+                    <svg viewBox="0 0 80 40">
+                      <circle fill="#0f172a" r="3" cy="10" cx="10" />
+                      <circle fill="#0f172a" r="3" cy="10" cx="30" />
+                      <circle fill="#0f172a" r="3" cy="10" cx="50" />
+                      <circle fill="#0f172a" r="3" cy="10" cx="70" />
+                      <circle fill="#0f172a" r="3" cy="20" cx="20" />
+                      <circle fill="#0f172a" r="3" cy="20" cx="40" />
+                      <circle fill="#0f172a" r="3" cy="20" cx="60" />
+                      <circle fill="#0f172a" r="3" cy="30" cx="10" />
+                      <circle fill="#0f172a" r="3" cy="30" cx="30" />
+                      <circle fill="#0f172a" r="3" cy="30" cx="50" />
+                      <circle fill="#0f172a" r="3" cy="30" cx="70" />
+                    </svg>
                   </div>
                 </div>
 
