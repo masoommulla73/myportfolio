@@ -19,30 +19,28 @@ export default function CanvasHero({ children }: { children: React.ReactNode }) 
     let loadedCount = 0;
     const images: HTMLImageElement[] = [];
 
-    const preloadNext = (frameNumber: number) => {
-      if (frameNumber > END_FRAME) return;
-      const img = new Image();
-      const frameStr = frameNumber.toString().padStart(3, "0");
-      img.src = `/ezgif/ezgif-frame-${frameStr}.png`;
-      
-      img.onload = () => {
-        loadedCount++;
-        // Start rendering as soon as the first frame loads to avoid blank screen
-        if (loadedCount === 1) setLoaded(true);
-        // Load the next one progressively
-        preloadNext(frameNumber + 1);
-      };
-      
-      img.onerror = () => {
-        console.error(`Failed to load frame ${frameStr}`);
-        preloadNext(frameNumber + 1); // Skip and continue
-      };
+    const preloadAll = () => {
+      for (let i = START_FRAME; i <= END_FRAME; i++) {
+        const img = new Image();
+        const frameStr = i.toString().padStart(3, "0");
+        img.src = `/ezgif/ezgif-frame-${frameStr}.png`;
+        
+        img.onload = () => {
+          loadedCount++;
+          // Start rendering as soon as the first frame loads to avoid blank screen
+          if (loadedCount === 1) setLoaded(true);
+        };
+        
+        img.onerror = () => {
+          console.error(`Failed to load frame ${frameStr}`);
+        };
 
-      const arrayIndex = frameNumber - START_FRAME;
-      images[arrayIndex] = img;
+        const arrayIndex = i - START_FRAME;
+        images[arrayIndex] = img;
+      }
     };
 
-    preloadNext(START_FRAME);
+    preloadAll();
     imagesRef.current = images;
   }, []);
 

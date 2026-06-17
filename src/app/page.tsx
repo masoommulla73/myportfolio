@@ -22,7 +22,7 @@ export default function Home() {
     <div className="relative text-[#0f172a] font-sans">
       
       {/* Scrollable Content Wrapper */}
-      <main className="relative z-10 bg-[#c2def2] shadow-[0_20px_50px_rgba(0,0,0,0.5)] mb-[100vh]">
+      <main className="relative z-10 bg-[#c2def2] shadow-[0_20px_50px_rgba(0,0,0,0.5)] lg:mb-[100vh]">
         <CanvasHero>
         {/* Background Huge Text - Centered perfectly behind the Canvas (z-0) */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0 overflow-hidden">
@@ -185,10 +185,15 @@ export default function Home() {
         <FeaturedProjects />
         <JourneyTimeline />
       </div>
+      
+      {/* Mobile Standard Footer (Normal Flow, No Shutter) */}
+      <div className="block lg:hidden relative z-30 bg-black pointer-events-auto">
+        <ContactFooter />
+      </div>
       </main>
 
-      {/* The Reveal Footer - fixed behind everything else */}
-      <div className="fixed bottom-0 left-0 w-full h-[100vh] z-0 pointer-events-none">
+      {/* The Reveal Footer - fixed behind everything else (Desktop Only) */}
+      <div className="hidden lg:block fixed bottom-0 left-0 w-full h-[100vh] z-0 pointer-events-none">
         <div className="w-full h-full pointer-events-auto">
           <ContactFooter />
         </div>
