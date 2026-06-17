@@ -48,7 +48,7 @@ export default function ContactFooter() {
           {/* Brutalist Grid Details */}
           <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-8 border-t border-l border-white/10 w-full [perspective:1000px]">
             
-            <div className="group/card flex flex-col gap-4 border-b border-r border-white/10 p-6 lg:p-10 transition-all duration-500 ease-in-out [transform-style:preserve-3d] hover:[transform:rotate3d(0.5,1,0,30deg)] hover:bg-white/5 hover:shadow-[12px_12px_0_#34d399]">
+            <div className="group/card flex flex-col gap-4 border-b border-r border-white/10 p-6 lg:p-10 transition-all duration-500 ease-in-out [transform-style:preserve-3d] hover:bg-white/5 hover:shadow-[12px_12px_0_#34d399]">
               <div className="transition-all duration-500 ease-in-out group-hover/card:[transform:translateZ(40px)]">
                 <h4 className="text-emerald-400 text-xs font-black uppercase tracking-widest">Location</h4>
                 <p className="text-xl lg:text-2xl font-bold uppercase tracking-tight leading-tight mt-4">
@@ -57,7 +57,7 @@ export default function ContactFooter() {
               </div>
             </div>
 
-            <div className="group/card flex flex-col gap-4 border-b border-r border-white/10 p-6 lg:p-10 transition-all duration-500 ease-in-out [transform-style:preserve-3d] hover:[transform:rotate3d(0.5,1,0,30deg)] hover:bg-white/5 hover:shadow-[12px_12px_0_#34d399]">
+            <div className="group/card flex flex-col gap-4 border-b border-r border-white/10 p-6 lg:p-10 transition-all duration-500 ease-in-out [transform-style:preserve-3d] hover:bg-white/5 hover:shadow-[12px_12px_0_#34d399]">
               <div className="transition-all duration-500 ease-in-out group-hover/card:[transform:translateZ(40px)]">
                 <h4 className="text-emerald-400 text-xs font-black uppercase tracking-widest">Socials</h4>
                 <div className="flex items-center gap-6 text-2xl mt-4">
@@ -74,7 +74,7 @@ export default function ContactFooter() {
               </div>
             </div>
 
-            <div className="group/card flex flex-col gap-4 border-b border-r border-white/10 p-6 lg:p-10 transition-all duration-500 ease-in-out sm:col-span-2 [transform-style:preserve-3d] hover:[transform:rotate3d(0.5,1,0,30deg)] hover:bg-white/5 hover:shadow-[12px_12px_0_#34d399]">
+            <div className="group/card flex flex-col gap-4 border-b border-r border-white/10 p-6 lg:p-10 transition-all duration-500 ease-in-out sm:col-span-2 [transform-style:preserve-3d] hover:bg-white/5 hover:shadow-[12px_12px_0_#34d399]">
               <div className="transition-all duration-500 ease-in-out group-hover/card:[transform:translateZ(40px)]">
                 <h4 className="text-emerald-400 text-xs font-black uppercase tracking-widest">Direct Contact</h4>
                 <a href={`mailto:${SITE_CONTENT.contactEmail}`} className="text-2xl lg:text-4xl font-bold hover:text-emerald-400 transition-colors break-all mt-4 block">
