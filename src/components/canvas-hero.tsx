@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useScroll } from "framer-motion";
+// Using native scroll listener instead of framer-motion
 
 const START_FRAME = 6;
 const END_FRAME = 200;
@@ -10,12 +10,6 @@ const FRAME_COUNT = END_FRAME - START_FRAME + 1; // 195 frames
 export default function CanvasHero({ children }: { children: React.ReactNode }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  
-  // Track scroll progress purely over this container
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
 
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const [loaded, setLoaded] = useState(false);
@@ -56,13 +50,34 @@ export default function CanvasHero({ children }: { children: React.ReactNode }) 
   const currentFrameRef = useRef(0);
   const targetFrameRef = useRef(0);
 
-  // Map scroll progress to target frame index
+  // Map scroll progress to target frame index natively
   useEffect(() => {
-    return scrollYProgress.on("change", (latest) => {
-      // Range: 0 to FRAME_COUNT - 1
-      targetFrameRef.current = latest * (FRAME_COUNT - 1);
-    });
-  }, [scrollYProgress]);
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      const totalScrollDistance = rect.height - windowHeight;
+      if (totalScrollDistance <= 0) return;
+
+      // When rect.top is 0, we are at the top of the container.
+      // When rect.top is -totalScrollDistance, we are at the bottom.
+      const currentScroll = -rect.top;
+      let progress = currentScroll / totalScrollDistance;
+      progress = Math.max(0, Math.min(1, progress));
+      
+      targetFrameRef.current = progress * (FRAME_COUNT - 1);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+    handleScroll(); // Initialize on mount
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
 
   // Persistent Rendering Loop
   useEffect(() => {
