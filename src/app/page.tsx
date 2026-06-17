@@ -35,10 +35,10 @@ export default function Home() {
         <div className="absolute inset-0 z-20 pointer-events-none">
         
         {/* Top Navigation */}
-        <header className="absolute top-0 w-full px-6 lg:px-12 py-6 lg:py-8 flex items-center justify-between z-20 pointer-events-auto">
+        <header className="absolute top-0 w-full px-6 lg:px-12 py-4 lg:py-5 flex items-center justify-between z-20 pointer-events-auto">
           <AdminTrigger />
           
-          <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold text-[#0f172a]/70">
+          <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold text-[#0f172a]/80 bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full border border-white/20">
             <Link href="#home" className="text-[#0f172a] border-b-2 border-[#0f172a] pb-1">Home</Link>
             <Link href="#about" className="hover:text-[#0f172a] transition-colors">About</Link>
             <Link href="#skills" className="hover:text-[#0f172a] transition-colors">Skills</Link>
